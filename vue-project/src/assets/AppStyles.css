@@ -1,7 +1,20 @@
+@import './base.css';
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+}
 .dark-mode {
     background-color: #1e1e1e;
     color: #ffffff;
-    font-family: Arial, sans-serif;
     min-height: 100vh;
     padding: 2rem;
   }
@@ -56,11 +69,14 @@
   }
   
   li {
+    font-size: 11px;
     background-color: #3b3b3b;
     border-radius: 5px;
     padding: 1rem;
     margin-bottom: 1rem;
     width: 100%;
+    height: 200px;
+    overflow-y: auto;
   }
   
   table {
@@ -72,5 +88,41 @@
   td {
     border: 1px solid #555;
     padding: 0.5rem;
+  }
+  
+
+  .status-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  td.status-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .status-circle.ok {
+    background-color: green;
+    animation: blinker 1s linear infinite;
+  }
+
+  .status-circle.error {
+    background-color: red;
+    animation: blinker 1s linear infinite;
+  }
+
+  .status-circle.checking {
+    background-color: yellow;
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0.5;
+    }
   }
   
